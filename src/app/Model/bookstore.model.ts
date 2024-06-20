@@ -27,4 +27,3 @@ export interface Cart{
     image:string,
     quantity:number
 }
-  
