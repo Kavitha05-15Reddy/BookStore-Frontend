@@ -1,0 +1,27 @@
+<div class="container">
+  <p>Order summary</p>
+    <div *ngFor="let item of cartItems"> 
+        <div class="details">
+
+          <div class="image">
+              <img src="{{item.image}}">
+          </div>
+    
+          <div class="content">
+            <div class="title">
+              <span>{{item.title}}</span>
+            </div>
+            <div class="author">
+                <span>by {{item.author}}</span>
+            </div>
+            <div class="prices">
+              <span class="price">Rs. {{item.totalPrice}}</span>
+              <span class="original-price">Rs. {{item.totalOriginalPrice}}</span>
+            </div>
+            <div class="checkout" *ngIf="cartItems.length>0">
+              <button (click)="orderSuccess(item.cartId)">CHECKOUT</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

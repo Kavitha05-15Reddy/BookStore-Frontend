@@ -1,0 +1,21 @@
+<div class="book-card" (click)="goToBookDetails()">
+    <div class="image">
+        <img src="{{Book.image}}" width="105px" height="135px" >
+    </div>
+    <div class="details">
+        <mat-card-title style="font-weight: 550;">
+            {{Book.title}}
+        </mat-card-title>
+        <mat-card-content>
+            <div style="color: #878787;">by {{Book.author}}</div>
+            <div>
+                <span class="rating">{{Book.rating}}<mat-icon>star</mat-icon></span>
+                <span style="color: #888;">({{Book.ratingCount}})</span>
+            </div>
+            <div class="price">
+                <span style="font-weight: 600;">Rs. {{Book.price}}</span>
+                <span class="original-price">Rs. {{Book.originalPrice}}</span>
+            </div>
+        </mat-card-content>
+    </div>
+</div>

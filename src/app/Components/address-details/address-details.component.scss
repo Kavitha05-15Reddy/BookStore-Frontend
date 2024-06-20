@@ -1,0 +1,122 @@
+.container {
+  width:50%;
+  margin-left: 230px;
+  margin-top: 15px;
+  border:1px solid #E4E4E4;
+  padding: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.text {
+ margin-top: 20px;
+}
+
+.text p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 550;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons button {
+  background-color: white;
+  color: #A03037;
+  padding: 7px;
+  border: 1px solid #A03037;
+  cursor: pointer;
+  font-size: 14px;
+  width: 150px;
+}
+
+.details,
+.address,
+.citydetails,
+.type {
+  margin-top: 15px;
+}
+
+.details {
+  display: flex;
+}
+
+.citydetails{
+  display: flex;
+}
+
+.details .name,
+.details .number,
+.citydetails .city,
+.citydetails .state {
+  flex: 1;
+}
+
+.details label,
+.address label,
+.citydetails label,
+.type span {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.details input,
+.address textarea,
+.citydetails input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.address textarea {
+  resize: none;
+  overflow: hidden;
+  height: 80px;
+  width: 90%;
+}
+
+.type {
+  margin-top: 15px;
+}
+
+.type mat-radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.button {
+  display: flex;
+  gap: 225px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.button button {
+  background-color: #185495;
+  color:white;
+  padding: 8px 20px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.button .continue-button {
+  margin-left: auto;
+}
+
+.button button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

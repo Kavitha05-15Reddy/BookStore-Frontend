@@ -1,0 +1,78 @@
+<div class="home">
+    <span routerLink="/home/getallbooks">Home /</span> Book({{data.bookId}})
+</div>
+
+<div class="container">
+    <div>
+        <div class="book">
+            <img src="{{data.image}}">
+        </div>
+        <div class="buttons">
+            <button class="bag" (click)="addToCart()">ADD TO BAG</button>
+            <button class="wish">
+                <span class="like">&#10084;</span>
+                <span (click)="addToWishlist()">WISHLIST</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="title">
+            <span>{{data.title}}</span>
+        </div>
+        <div class="author">
+            <span>by {{data.author}}</span>
+        </div>
+        <div>
+            <span class="rating">{{data.rating}}<mat-icon >star</mat-icon></span>
+            <span style="color: #888;">({{data.ratingCount}})</span>
+        </div>
+        <div class="prices">
+            <span class="price">Rs. {{data.price}}</span>
+            <span class="original-price">Rs. {{data.originalPrice}}</span>
+        </div>
+        <div class="divider">
+            <mat-divider></mat-divider>
+        </div>
+        <div class="book-data">
+            <span class="dot">&bull;</span>
+            <span>Book Detail</span>
+        </div>
+        <div class="description">
+            <span>{{data.description}}</span>
+        </div>
+        <div class="divider2">
+            <mat-divider></mat-divider>
+        </div>
+        <div class="feedback-details">
+            <span>Customer Feedback</span>
+        </div>
+        <div class="feedback">
+            <div class="ratings">
+              <span>Overall rating</span>
+            </div>
+            <div class="stars">
+                <span *ngFor="let star of [1, 2, 3, 4, 5]" (click)="newFeedback.rating = star" 
+                    [innerHTML]="star <= newFeedback.rating ? '&#9733;' : '&#9734;'">
+                </span>
+            </div>
+            <div class="review-text">
+              <input type="text" placeholder="Write your review" [(ngModel)]="newFeedback.review">
+            </div>
+            <div class="submit">
+              <button (click)="submitFeedback()">Submit</button>
+            </div>
+        </div>
+          
+        <div class="customer-feedbacks" *ngIf="feedbacks.length > 0">
+            <div *ngFor="let feedback of data.feedbacks">
+              <span class="name">{{ feedback.userName }}</span>
+            <div class="rating-stars">
+                <span *ngFor="let star of [1, 2, 3, 4, 5]" [ngClass]="{'filled': star <= feedback.rating}">&#9733;</span>
+            </div>
+            <p class="comment">{{ feedback.review }}</p>
+        </div>
+    </div>         
+</div>
+
+

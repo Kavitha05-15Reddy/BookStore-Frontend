@@ -1,0 +1,37 @@
+<div class="home">
+    <span routerLink="/home/getallbooks" style="padding-bottom: 15px;">Home/</span> My Order
+</div>
+
+<div class="container">
+    <span class="count">My Orders({{orderItems.length}})</span>
+    <div *ngFor="let item of orderItems"> 
+      <div class="details">
+        <div class="image">
+            <img src="{{item.image}}">
+        </div>
+  
+        <div class="content">
+          <div class="title">
+            <span>{{item.title}}</span>
+          </div>
+          <div class="author">
+              <span>by {{item.author}}</span>
+          </div>
+          <div class="prices">
+            <span class="price">Rs. {{item.totalPrice}}</span>
+            <span class="original-price">Rs. {{item.totalOriginalPrice}}</span>
+            <span  class="cancel" (click)="cancelOrder(item.orderId)">cancel</span>    
+          </div>
+        </div>
+        
+        <div class="date">
+          <ul>
+              <li>
+                  <b>Order placed on {{item.orderDateTime}}</b>
+              </li>
+          </ul>
+        </div>
+    </div>
+</div>
+
+

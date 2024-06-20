@@ -1,0 +1,56 @@
+<div class="home">
+  <span routerLink="/home/getallbooks" style="padding-bottom: 15px;">Home/</span> My Cart
+</div>
+
+<div class="container">
+  <span class="cart">My Cart({{cartItems.length}})</span>
+  <span class="location"><span class="symbol">location_on</span>Use current location ▼</span>
+  <div *ngFor="let item of cartItems"> 
+    <div class="cart-details">
+      <div class="cart-img">
+          <img src="{{item.image}}">
+      </div>
+
+      <div class="details">
+        <div class="title">
+          <span>{{item.title}}</span>
+        </div>
+        <div class="author">
+            <span>{{item.author}}</span>
+        </div>
+        <div class="prices">
+          <span class="price">Rs. {{item.totalPrice}}</span>
+          <span class="original-price">Rs. {{item.totalOriginalPrice}}</span>
+        </div>
+        <div class="quantity">
+            <span class="add-quantity" >
+                    <button class="symbols" (click)="decrement(item)">
+                      <img  src="assets/decrement.svg"></button>
+                    <span class="display">{{item.quantity}}</span>
+                    <button class="symbols" (click)="increment(item)">
+                      <img  src="assets/increment.svg"></button>
+            </span>
+            <span class="remove" (click)="removeFromCart(item.cartId)">Remove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="place-order" *ngIf="cartItems.length>0">
+    <span (click)="opendialog()" *ngIf="toggleplaceorder">PLACE ORDER</span>
+  </div>
+</div>
+
+<div class="address-text"  *ngIf="!useraddress">
+    <span>Address Details</span>
+</div>
+<div class="address" *ngIf="useraddress">
+    <app-address-details (order)="handleevent($event)"></app-address-details>
+</div>
+
+<div class="order-text" *ngIf="!ordersummary">
+  <span>Order Summary</span>
+</div>
+<div class="order-summary" *ngIf="ordersummary">
+  <app-order-summary></app-order-summary>
+</div>
+

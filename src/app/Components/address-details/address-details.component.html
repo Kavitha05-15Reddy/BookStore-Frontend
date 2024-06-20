@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="info">
+    <div class="text">
+      <p>Customer details</p>
+    </div>
+    <div class="buttons">
+      <button (click)="addAddress()">Add New Address</button>
+      <button (click)="editAddress()" *ngIf="!isEdit && showForm">Edit Address</button>
+    </div>
+  </div>
+  
+  <div class="details" *ngIf="showForm">
+    <div class="name">
+      <label>Full Name</label>
+      <input type="text" [(ngModel)]="addressdata.fullName" [readonly]="!isEdit"/>
+    </div>
+    <div class="number">
+      <label>Mobile Number</label>
+      <input type="text" [(ngModel)]="addressdata.mobileNo" [readonly]="!isEdit"/>
+    </div>
+  </div>
+  <div class="address" *ngIf="showForm">
+    <label>Address</label>
+    <textarea [(ngModel)]="addressdata.address" rows="3" [readonly]="!isEdit"></textarea>
+  </div>
+  <div class="citydetails" *ngIf="showForm">
+    <div class="city">
+      <label>City/Town</label>
+      <input type="text" [(ngModel)]="addressdata.city" [readonly]="!isEdit"/>
+    </div>
+    <div class="state">
+      <label>State</label>
+      <input type="text" [(ngModel)]="addressdata.state" [readonly]="!isEdit"/>
+    </div>
+  </div>
+  <div class="type" *ngIf="showForm">
+    <span>Type</span>
+    <mat-radio-group [(ngModel)]="addressdata.type" [disabled]="!isEdit">
+      <mat-radio-button value="Home">Home</mat-radio-button>
+      <mat-radio-button value="Work">Work</mat-radio-button>
+      <mat-radio-button value="Others">Others</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="button" *ngIf="showForm">
+    <button (click)="saveAddress()" *ngIf="isEdit">Save</button>
+    <button (click)="saveAndContinue()" *ngIf="isEdit">Save and Continue</button>
+    <button (click)="cancel()" *ngIf="isEdit">Cancel</button>
+    <button (click)="gotoOrders()" class="continue-button" *ngIf="!isEdit">CONTINUE</button>
+  </div>
+</div>

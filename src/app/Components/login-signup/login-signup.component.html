@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="left">
+        <img class="online-img" src="assets/login.png">
+        <h4>ONLINE BOOK SHOPPING</h4>
+    </div>
+    
+    <div class="right">
+        <div class="form-container" >
+            <div class="header">
+                <h2 [class.active]="showLogin" (click)="toggleForm(true)">LOGIN</h2>
+                <h2 [class.active]="!showLogin" (click)="toggleForm(false)">SIGNUP</h2>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()" class="form-group" *ngIf="showLogin">
+                <label>Email Id</label>
+                <input type="email" placeholder="Email Id" formControlName="emailId">
+                <label>Password</label>
+                <input type="password" placeholder="Password" formControlName="password">
+                <p>Forgot Password?</p>
+                <button type="submit" class="login">Login</button>
+                <div class="or">OR</div>
+                <button type="button" class="facebook">Facebook</button>
+                <button type="button" class="google">Google</button>
+            </form>
+
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignup()" class="form-group" *ngIf="!showLogin">
+                <label>Full Name</label>
+                <input type="text" placeholder="Full Name" formControlName="fullName">
+                <label>Email Id</label>
+                <input type="email"  placeholder="Email Id" formControlName="emailId">
+                <label>Password</label>
+                <input type="password" placeholder="Password" formControlName="password">
+                <label>Mobile Number</label>
+                <input type="text" placeholder="Mobile Number" formControlName="mobileNo">
+                <button type="submit" class="signup">Signup</button>
+            </form>
+        </div>
+    </div>
+</div>

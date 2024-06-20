@@ -1,0 +1,70 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <div class="book">
+            <img class="b-img" src="assets/book.png">
+            <span class="b-name">Bookstore</span>
+        </div>
+        <div class="search-box">
+            <button class="search" mat-icon-button>
+                <img src="assets/search.svg">
+            </button>
+            <input matInput placeholder="Search..." type="text" >
+        </div>
+        <div class="end">
+            <div>
+                <img (click)="profiledata()" class="profile" src="assets/profile.png">
+                <p>{{ loggedin ? name : "Profile" }}</p>
+            </div>
+            <div (click)="goToCart()">
+                <img class="cart" src="assets/cart.png">
+                <p>Cart ({{ cartItems.length }})</p>
+            </div>
+        </div>  
+        <div *ngIf="loginClick">
+            <dialog open class="dialog">
+                <span class="title">Welcome</span>
+                <div class="content">
+                    <span>To acesess account and manage orders</span>
+                </div>
+                <div>
+                    <button class="button1" (click)="login()">LOGIN/SIGNUP</button>
+                </div>
+                <div>
+                    <mat-divider></mat-divider>
+                </div>
+                <div class="list">
+                    <img src="assets/shopping_bag.svg">
+                    <p>My Orders</p>
+                </div>
+                <div class="list">
+                    <img src="assets/favorite.svg">
+                    <p>Wishlist</p>
+                </div> 
+            </dialog>
+        </div>    
+
+        <div *ngIf="loggedin">
+            <dialog open  class="dialog">
+                <div class="title">
+                    <p> Hello, {{name}}</p>
+                </div>
+                <div (click)="profile()" class="person">
+                    <img src="assets/profile.png">
+                    <p>{{"Profile"}}</p>
+                </div>
+                <div (click)="goToOrders()" class="person">
+                    <img src="assets/shopping_bag.svg"/>
+                    <p>My Orders</p>
+                </div>
+                <div (click)="goToWish()"  class="person">
+                    <img src="assets/favorite.svg"/>
+                    <p>Whishlist</p>
+                </div>
+                <div>
+                    <button class="button2" (click)="logout()" >Logout</button>
+                </div>
+            </dialog>
+        </div> 
+    </mat-toolbar-row>
+</mat-toolbar>
+

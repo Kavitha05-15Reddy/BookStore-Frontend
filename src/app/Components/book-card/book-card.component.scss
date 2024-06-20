@@ -1,0 +1,53 @@
+.book-card{
+  height: 310px;
+  width: 235px;
+  margin-bottom: 30px;
+  border: 2px solid #E2E2E2;
+  border-radius: 3px;
+  transition-duration: 600ms;
+}
+
+.book-card:hover{
+  box-shadow: rgba(146, 143, 143, 0.273) 2px 2px 6px 6px;
+}
+
+.book-card .image{
+  height: 175px;
+  width: 99%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F5F5F5;
+}
+
+.book-card .details{
+  width: 80%;
+  margin: 10px auto;
+}
+
+.rating{
+  background-color: hsl(123, 43%, 39%);
+  color: white;
+  padding: 1px 2px 1px 5px;
+  margin-right: 5px;
+}
+
+.rating mat-icon{
+  font-size: small;
+  position: relative;
+  top: 12px;
+  margin-left: 5px;
+}
+
+.original-price {
+      text-decoration: line-through;
+      color: #888;
+      margin-left: 8px;
+}
+
+.price {
+  margin-top: 5px;
+}
+
+
+

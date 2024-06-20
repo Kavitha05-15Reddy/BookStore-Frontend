@@ -1,0 +1,32 @@
+<div class="home">
+    <span routerLink="/home/getallbooks" >Home/</span> My Wishlist
+</div>
+
+<div class="container">
+    <span class="count">My Wishlist({{wishlistItems.length}})</span>
+    
+    <div *ngFor="let item of wishlistItems">
+        <div class="details">
+            <div class="image">
+                <img src="{{item.image}}">
+            </div>
+
+            <div class="content">
+                <div class="title">
+                    <span>{{item.title}}</span>
+                </div>
+                <div class="author">
+                    <span>by {{item.author}}</span>
+                </div>
+                <div class="prices">
+                <span class="price">Rs. {{item.price}}</span>
+                <span class="original-price">Rs. {{item.originalPrice}}</span>
+                </div>
+            </div>
+
+            <div class="remove">
+                <img (click)="removeFromWishlist(item.wishlistId)" src="assets/delete.svg">     
+            </div>
+        </div>
+    </div>
+</div>
