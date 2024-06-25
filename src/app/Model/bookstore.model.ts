@@ -27,3 +27,12 @@ export interface Cart{
     image:string,
     quantity:number
 }
+export interface CartItem {
+    cartId: number;
+    title: string;
+    author: string;
+    totalPrice: number;
+    totalOriginalPrice: number;
+    image: string;
+    quantity: number;
+}
